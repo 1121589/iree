@@ -325,6 +325,9 @@ ABI_TYPE_TO_DTYPE = {
     # TODO: Others.
     "f32": np.float32,
     "i32": np.int32,
+    "i64": np.int64,
+    "f64": np.float64,
+    "i1": np.bool_,
 }
 
 # NOTE: Numpy dtypes are not hashable and exist in a hierarchy that should
@@ -343,6 +346,7 @@ DTYPE_TO_HAL_ELEMENT_TYPE = (
     (np.uint64, HalElementType.UINT_64),
     (np.uint16, HalElementType.UINT_16),
     (np.uint8, HalElementType.UINT_8),
+    (np.bool_, HalElementType.BOOL_8),
 )
 
 
