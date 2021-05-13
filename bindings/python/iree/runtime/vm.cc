@@ -366,6 +366,10 @@ py::object VmVariantList::GetAsNdarray(int index) {
     case IREE_HAL_ELEMENT_TYPE_FLOAT_64:
       dtype_code = "d";
       break;
+    // Special case: i1 is packed as i8.
+    case IREE_HAL_ELEMENT_TYPE_VALUE(IREE_HAL_NUMERICAL_TYPE_INTEGER_SIGNED, 1):
+      dtype_code = "b";
+      break;
     default:
       throw RaiseValueError("Unsupported VM Buffer -> numpy dtype mapping");
   }
